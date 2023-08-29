@@ -26,6 +26,7 @@ jobs:
       - name: Link
         run: npm run lint
   build:
+    needs: lint
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +39,7 @@ jobs:
     - run: npm run build --if-present
   
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
